@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void tail(int n)
+{
+  if(n==0)
+  {
+      return;
+  }
+  cout<<"N="<<n<<endl;
+  tail(n-1);
+}
+
+void head(int n)
+{
+  if(n==0)
+  {
+      return;
+  }
+  head(n-1);
+  cout<<"N="<<n<<endl;
+
+}
+
+int fact(int n)
+{
+    if(n==1)
+    {
+        return 1;
+    }
+    return fact(n-1)*n;
+}
+
+int factaccumulator(int n,int result)
+{
+    if(n==1)
+    {
+        return result;
+    }
+    return factaccumulator((n-1),n*result);
+}
+
+int fibonacci(int n)
+{
+    if(n==0)
+    {
+        return 0;
+    }
+    else if(n==1)
+    {
+        return 1;
+    }
+
+       int fib1=fibonacci(n-1);
+       int fib2=fibonacci(n-2);
+    return fib1+fib2;
+
+}
+
+int main()
+{
+
+    int n;
+    cout<<"Enter Number : ";
+    cin>>n;
+    head(n);
+    tail(n);
+
+    int result;
+    result=factaccumulator(n,1);
+    cout<<"Factoroial of "<<n<<" is : "<<result<<endl;
+
+   return  fibonacci(n);
+}
