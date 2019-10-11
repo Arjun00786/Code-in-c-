@@ -1,0 +1,23 @@
+#include<iostream>
+
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter number to find fabonacci : ";
+    cin>>n;
+    cout<<"\n\n";
+
+     int  first=0,second=1,temp=0;
+     cout<<first<<"  "<<second<<"  ";
+    while((first+second)<=n)
+    {
+        temp=first+second;
+        first=second;
+        second=temp;
+        cout<<temp<<"  ";
+
+    }
+
+    return 0;
+}
