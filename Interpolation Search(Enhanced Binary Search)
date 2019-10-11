@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void binary(int a[],int data,int l,int h)
+{
+   int mid=l+((h-l)/(a[h]-a[l]))*(data-a[l]);
+
+   if(a[mid]==data)
+   {
+       cout<<"Data "<<data<<" is present at index : "<<mid+1;
+       return;
+   }
+   else if(a[mid]<data)
+   {
+       binary(a,data,mid+1,h);
+   }
+   else
+   {
+       binary(a,data,l,mid-1);
+   }
+}
+int main()
+{
+    int n;
+    cout<<"Enter Number of Elements : ";
+    cin>>n;
+    int a[n];
+    cout<<"........................Enter Number on Sorted Order...................."<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cout<<"Enter Number "<<i+1<<" : ";
+        cin>>a[i];
+    }
+    int temp;
+    cout<<"Enter Number to Search in array : ";
+    cin>>temp;
+    binary(a,temp,0,n);
+}
+
+
+//Time complexity is O(log(log n))
